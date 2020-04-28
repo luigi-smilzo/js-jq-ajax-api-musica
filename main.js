@@ -7,17 +7,23 @@ $(document).ready(function() {
         url: 'https://flynn.boolean.careers/exercises/api/array/music',
         method: 'GET',
         success: function(data) {
-            var firstAlbum = data.response[0];
-            var infoCd = {
-                imgUrl: firstAlbum.poster,
-                albumTitle: firstAlbum.title,
-                artist: firstAlbum.author,
-                year: firstAlbum.year
+            var albumInfos = data.response;
+
+            for (var i = 0; i < albumInfos.length; i++) {
+                
+                var item = albumInfos[i];
+
+                var infoCd = {
+                    imgUrl: item.poster,
+                    albumTitle: item.title,
+                    artist: item.author,
+                    year: item.year
+                }
+        
+                var html = template(infoCd);
+                container.append(html);
+
             }
-
-            var html = template(infoCd);
-            container.append(html);
-
         },
         error: function() {
             console.error('Album non trovato');
