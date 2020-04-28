@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var container = $('.cds-container');
+    var select = $('#genre');
     var source = $('#album-template').html();
     var template = Handlebars.compile(source);
 
@@ -17,7 +18,8 @@ $(document).ready(function() {
                     imgUrl: item.poster,
                     albumTitle: item.title,
                     artist: item.author,
-                    year: item.year
+                    year: item.year,
+                    genre: item.genre
                 }
         
                 var html = template(infoCd);
@@ -30,32 +32,20 @@ $(document).ready(function() {
         }
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    select.change(function() {
+        var actual = select.val();
+        if (actual != '') {
+            
+            $('.cds-container .cd').each(function() {
+                if ( $(this).data('genre') == actual ) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        } else {
+            $('.cds-container .cd').show();
+        }
+    });
 
 }); // <-- End ready

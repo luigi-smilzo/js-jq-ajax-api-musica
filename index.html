@@ -14,11 +14,18 @@
                 <img src="logo.png" alt="logo" />
             </div>
         </header>
-
+        <label for="genre">Seleziona un genere</label>
+        <select id="genre">
+            <option value="">-- Genere --</option>
+            <option value="Pop">Pop</option>
+            <option value="Rock">Rock</option>
+            <option value="Metal">Metal</option>
+            <option value="Jazz">Jazz</option>
+        </select>
         <div class="cds-container container">
             <!-- Disco ad esempio -->
             <script id="album-template" type="text/x-handlebars-template">
-                <div class="cd">
+                <div class="cd" data-genre="{{genre}}">
                     <img src="{{imgUrl}}" alt="">
                     <h3>{{albumTitle}}</h3>
                     <span class="author">{{artist}}</span>
