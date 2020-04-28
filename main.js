@@ -34,13 +34,14 @@ $(document).ready(function() {
 
     select.change(function() {
         var actual = select.val();
+        
         if (actual != '') {
-            
             $('.cds-container .cd').each(function() {
-                if ( $(this).data('genre') == actual ) {
-                    $(this).show();
+                var actualCard = $(this);
+                if ( actualCard.data('genre') == actual ) {
+                    actualCard.show();
                 } else {
-                    $(this).hide();
+                    actualCard.hide();
                 }
             });
         } else {

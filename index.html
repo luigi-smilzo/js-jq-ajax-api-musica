@@ -14,14 +14,18 @@
                 <img src="logo.png" alt="logo" />
             </div>
         </header>
-        <label for="genre">Seleziona un genere</label>
-        <select id="genre">
-            <option value="">-- Genere --</option>
-            <option value="Pop">Pop</option>
-            <option value="Rock">Rock</option>
-            <option value="Metal">Metal</option>
-            <option value="Jazz">Jazz</option>
-        </select>
+        
+        <div class="select-genre" style="margin-top: 20px;">
+            <label for="genre" style="color: white;display: block;text-align: center;">Seleziona un genere</label>
+            <select id="genre" style="display: block;margin: 0 auto;">
+                <option value="">-- Genere --</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Metal">Metal</option>
+                <option value="Jazz">Jazz</option>
+            </select>
+        </div>
+
         <div class="cds-container container">
             <!-- Disco ad esempio -->
             <script id="album-template" type="text/x-handlebars-template">
